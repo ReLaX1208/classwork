@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>dobav</title>
+</head>
+<body>
+<div><a href="{% url 'bboard:index' %}">Glavnaya</a>
+    {% for rubric in rubrics %}
+        <a href="{% url 'bboard:by_rubric' rubric.pk %}">{{ rubric.name }}</a>
+    {% endfor %}
+</div>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Dobavlyai</button>
+</form>
+
+</body>
+</html>

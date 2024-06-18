@@ -7,6 +7,7 @@
 <body>
 <h1>obiyava</h1>
 <div><a href="{% url 'bboard:index' %}">Glavnaya</a>
+<a href="{% url 'bboard:add' %}">dobavit</a>
     {% for rubric in rubrics %}
         <a href="{% url 'bboard:by_rubric' rubric.pk %}">{{ rubric.name }}</a>
     {% endfor %}
@@ -15,7 +16,7 @@
     <div>
         <h2>{{ bb.name }}</h2>
         <p>{{ bb.content }}</p>
-        <p><a href="{% url 'bboard:by_rubric' rubric.pk %}">{{ bb.rubric.name }}</a></p>
+        <p><a href="{% url 'bboard:by_rubric' bb.rubric.pk %}">{{ bb.rubric.name }}</a></p>
         <p>{{ bb.publish|date:"d.m.Y H:i:s" }}</p>
     </div>
 {% endfor %}
